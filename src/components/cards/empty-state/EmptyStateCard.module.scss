@@ -1,0 +1,25 @@
+@import "scss/font_mixins";
+
+.empty__state__card {
+  padding: 32px 24px;
+  border-radius: 8px;
+  border: 1px dashed var(--token-dark-700, #2A2B32);
+  width: 100%;
+
+  svg {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+  }
+
+  .description {
+    @include SmallLH;
+    color: var(--token-dark-900, #5E616E);
+    text-align: center;
+    max-width: 292px;
+
+    span {
+      color: var(--token-light-100, #FFF);
+    }
+  }
+}

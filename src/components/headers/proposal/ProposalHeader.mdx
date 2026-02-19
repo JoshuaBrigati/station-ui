@@ -1,0 +1,147 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks"
+import { RequiredText } from "../../../DocsHelpers.tsx"
+import * as ProposalHeaderStories from "./ProposalHeader.stories.tsx"
+import "scss/storybookoverrides.scss"
+
+<Meta title="Components/Headers/Proposal" />
+
+# Proposal Header
+
+##### A Header for displaying information about a proposal.
+
+## Props
+- **`status`** - <RequiredText /> - `string` - Used to display statup of the proposal.
+  - options: "Voting" | "Deposit" | "Rejected" | "Passed"
+- **`title`** - <RequiredText /> - `string` - The title of the page (The large text).
+- **`metaText`** - <RequiredText /> - `string` - The description of the page (The small text on top).
+- **`metaImage`** - <RequiredText /> - `string` - The image of the page (The small image on top).
+- **`submittedDate`** - <RequiredText /> - `string` - The date the proposal was submitted.
+- **`endsDate`** - <RequiredText /> - `string` - The date the proposal ends.
+  - ***If this date hasn't passed, a countdown will be displayed***
+- **`voteValue`** - `string` - The value of what the USER voted.
+  - option: "Yes" | "No" | "Abstain" | "No (Veto)"
+
+## Import
+```jsx
+import { ProposalHeader } from "@terra-money/station-ui";
+```
+
+## Stories
+
+## Passed And Voted
+***`Voted` with make the title text --token-light-100***
+<div className="story_with_source_below">
+  <Canvas of={ProposalHeaderStories.PassedAndVoted} />
+  <Source code={`
+    <ProposalHeader
+  status="Passed"
+  metaText={"4736 | Community pool spend proposal"}
+  metaImage={"https://station-assets.terra.dev/img/chains/Terra.svg"}
+  title={"OFFICIAL “Revitalizing Terra: A Backbone Labs and Eris Protocol Collaboration” (Not A Grant)"}
+  submittedDate={"3 July 2023, 18:49:03 UTC"}
+  endsDate={"28 February 2024, 13:52:11 UTC"}
+  voteValue="Yes"
+/>
+  `} />
+</div>
+
+## Rejected And Non-Voted
+<div className="story_with_source_below">
+  <Canvas of={ProposalHeaderStories.RejectedAndNonVoted} />
+  <Source code={`
+    <ProposalHeader
+  status="Rejected"
+  metaText={"4736 | Community pool spend proposal"}
+  metaImage={"https://station-assets.terra.dev/img/chains/Terra.svg"}
+  title={"OFFICIAL “Revitalizing Terra: A Backbone Labs and Eris Protocol Collaboration” (Not A Grant)"}
+  submittedDate={"3 July 2023, 18:49:03 UTC"}
+  endsDate={"28 February 2024, 13:52:11 UTC"}
+/>
+  `} />
+</div>
+
+## Voting And Non-Voted
+<div className="story_with_source_below">
+  <Canvas of={ProposalHeaderStories.VotingNonVoted} />
+  <Source code={`
+    <ProposalHeader
+  status="Voting"
+  metaText={"4736 | Community pool spend proposal"}
+  metaImage={"https://station-assets.terra.dev/img/chains/Terra.svg"}
+  title={"OFFICIAL “Revitalizing Terra: A Backbone Labs and Eris Protocol Collaboration” (Not A Grant)"}
+  submittedDate={"3 July 2023, 18:49:03 UTC"}
+  endsDate={"28 February 2024, 13:52:11 UTC"}
+/>
+  `} />
+</div>
+
+## Deposit Non-Voted
+<div className="story_with_source_below">
+  <Canvas of={ProposalHeaderStories.DepositNonVoted} />
+  <Source code={`
+    <ProposalHeader
+  status="Deposit"
+  metaText={"4736 | Community pool spend proposal"}
+  metaImage={"https://station-assets.terra.dev/img/chains/Terra.svg"}
+  title={"OFFICIAL “Revitalizing Terra: A Backbone Labs and Eris Protocol Collaboration” (Not A Grant)"}
+  submittedDate={"3 July 2023, 18:49:03 UTC"}
+  endsDate={"28 February 2024, 13:52:11 UTC"}
+/>
+  `} />
+</div>
+
+## NoMetaImg
+<div className="story_with_source_below">
+  <Canvas of={ProposalHeaderStories.NoMetaImg} />
+  <Source code={`
+    <ProposalHeader
+  status="Passed"
+  metaText={"4736 | Community pool spend proposal"}
+  metaImage={"https://station-assets.terra.dev/img/chains/T.svg"}
+  title={"OFFICIAL “Revitalizing Terra: A Backbone Labs and Eris Protocol Collaboration” (Not A Grant)"}
+  submittedDate={"3 July 2023, 18:49:03 UTC"}
+  endsDate={"28 February 2024, 13:52:11 UTC"}
+/>
+  `} />
+</div>
+
+## Proposal Page
+<div className="story_with_source_below">
+  <Canvas of={ProposalHeaderStories.ProposalPage} />
+  <Source code={`
+    <ProposalHeader
+  status="Passed"
+  metaText={"4736 | Community pool spend proposal"}
+  metaImage={"https://station-assets.terra.dev/img/chains/Terra.svg"}
+  title={"OFFICIAL “Revitalizing Terra: A Backbone Labs and Eris Protocol Collaboration” (Not A Grant)"}
+  submittedDate={"3 July 2023, 18:49:03 UTC"}
+  isProposalPage
+/>
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

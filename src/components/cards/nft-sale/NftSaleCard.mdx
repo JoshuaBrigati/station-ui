@@ -1,0 +1,81 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks";
+import { RequiredText } from "../../../DocsHelpers.tsx";
+import * as NftSaleCardStories from "./NftSaleCard.stories.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Cards/NftSaleCard" />
+
+# NftSaleCard
+
+##### A Card to display the nft sale info.
+
+## Props
+- **`collectionPrice`** - <RequiredText /> - `number` - The collection floor price.
+- **`currentPrice`** - <RequiredText /> - `number` - The nft current price.
+- **`currencySymbol`** - `string` - The symbol of the currency ($).
+- **`saleEndDate`** - - <RequiredText /> - `Date` - When the sale ends.
+- **`tokenImg`** - <RequiredText /> - `string` - The image url of the token.
+- **`tokenName`** - <RequiredText /> - `string` - The name the token.
+- **`onBuyNowClick`** - <RequiredText /> - `() => void` - OnClick functionality for the buy now button.
+- **`onMakeOfferClick`** - <RequiredText /> - `() => void` - OnClick functionality for the make offer button.
+- **`onSaleFinished`** - <RequiredText /> - `() => void` - Callback function when the sale ends.
+
+## Import
+```jsx
+import { NftSaleCard } from "station-ui";
+```
+
+## Stories
+
+## Default
+<div className="story_with_source_below">
+  <Canvas of={NftSaleCardStories.Default} />
+  <Source code={`
+<div style={{ width: "630px" }}>
+  <NftSaleCard
+    collectionPrice={235.62}
+    currentPrice={310.28}
+    saleEndDate={date}
+    tokenImg="https://station-assets.terra.dev/img/coins/Luna.svg"
+    tokenName="LUNA"
+    onBuyNowClick={() => alert('buy')}
+    onMakeOfferClick={() => alert('offer')}
+    onSaleFinished={() => console.log('sale finished')}
+  />
+</div>
+  `} />
+</div>
+
+## Default With Symbol
+<div className="story_with_source_below">
+  <Canvas of={NftSaleCardStories.DefaultWithSymbol} />
+  <Source code={`
+<div style={{ width: "630px" }}>
+  <NftSaleCard
+    collectionPrice={235.62}
+    currentPrice={310.28}
+    saleEndDate={date}
+    tokenImg="https://station-assets.terra.dev/img/coins/axlUSDC.svg"
+    currencySymbol="$"
+    tokenName="axlUSDC"
+    onBuyNowClick={() => alert('buy')}
+    onMakeOfferClick={() => alert('offer')}
+    onSaleFinished={() => console.log('sale finished')}
+  />
+</div>
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

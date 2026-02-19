@@ -1,0 +1,93 @@
+import { Meta, Story, Canvas, Controls, ArgTypes, Description, Source } from '@storybook/addon-docs/blocks';
+import { RequiredText } from "../../../DocsHelpers.tsx";
+import * as ProfileStories from "./Profile.stories.tsx";
+import Profile from "./Profile.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Displays/Profile" />
+
+# Profile
+
+This is used to show user data and the linked socials.
+
+## Import
+```jsx
+import { Profile } from "station-ui";
+```
+
+## Profile Props
+
+- **`profileImg`** - <RequiredText /> - `string` - User's profile image.
+- **`profileLabel`** - <RequiredText /> - `string` - An alternative tag in case the image doesn't load.
+- **`profileCoverImg`** - <RequiredText /> - `string` - User's profile cover image.
+- **`name`** - <RequiredText /> - `string` - User's name and lastname.
+- **`description`** - <RequiredText /> - `string` - User's breif description.
+- **`socials`** - <RequiredText /> - `ReactNode` - User's linked or unlinked socials.
+- **`onClickView`** - <RequiredText /> - `() => void` - Show's a preview of the profile.
+- **`onClickEdit`** - <RequiredText /> - `() => void` - Show's a modal to edit the profile.
+
+## Stories
+
+## Profile
+A profile with discord and github linked.
+<div className="story_with_source_below">
+  <Canvas withSource="none">
+    <Story id='components-displays-profile-stories--default-profile' />
+  </Canvas>
+  <Source code={`
+    return (
+      <Profile
+        profileImg={"https://raw.githubusercontent.com/terra-money/validator-images/main/images/F87ADDB700C0CC94.jpg"}
+        name="Ib Warnerbring"
+        description="Product Designer"
+        profileLabel={"Profile Image"}
+        profileCoverImg={"https://raw.githubusercontent.com/terra-money/validator-images/main/images/F87ADDB700C0CC94.jpg"}
+        onClickEdit={() => alert('Edit')}
+        onClickView={() => alert('View')}
+        socials={
+          <Flex gap={24}>
+            <Social
+              title="GitHub"
+              icon={<GithubIcon width={28} height={28} fill="var(--token-dark-900)" />}
+              username={'@midnyt_simlyn'}
+              connected={true}
+            />
+            <Social
+              title="Discord"
+              icon={<DiscordIcon width={28} height={28} fill="var(--token-dark-900)" />}
+              username={'STRAYLIGHT#3670'}
+              connected={true}
+            />
+            <Social
+              title="Telegram"
+              icon={<TelegramIcon width={28} height={28} fill="var(--token-dark-900)" />}
+              connected={false}
+            />
+          </Flex>
+        }
+      />
+    )
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -1,0 +1,128 @@
+import { Meta, Story, Canvas, Controls, ArgTypes, Description, Source } from '@storybook/addon-docs/blocks';
+import { RequiredText } from "../../../DocsHelpers.tsx";
+import * as StepperStories from "./Stepper.stories.tsx";
+import Stepper from "./Stepper.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Displays/Stepper" />
+
+# Stepper
+
+This is used to design a step-based workflow.
+
+## Import
+```jsx
+import { Stepper } from "station-ui";
+```
+
+## Stepper Props
+
+- **`steps`** - <RequiredText /> - Used to set the number of steps.
+- **`renderIcon`** - `(currentStep: number) => string` - Used to render the icon based on the current step counter;
+- **`renderTitle`** - `(currentStep: number) => string` - Used to render the title based on the current step counter;
+- **`renderDescription`** - `(currentStep: number) => string` - Used to render the description based on the current step counter;
+- **`renderBody`** - <RequiredText /> `StepperFunction`; - Used to render other React elements based on the current step counter.
+
+## Stories
+
+## Stepper
+A stepper with 3 steps.
+<div className="story_with_source_below">
+  <Canvas withSource="none">
+    <Story id='components-displays-stepper-stepper--default-stepper' />
+  </Canvas>
+  <Source code={`
+    return (
+      <Stepper
+      steps={args.steps}
+      renderIcon={() => {
+        return <AddressBookIcon height={48} width={48} fill='var(--token-dark-900)' />
+      }}
+      renderTitle={(currentStep) => {
+        let title = ''
+
+        switch (currentStep) {
+          case 0:
+            title = 'Get started with Identity'
+            break
+          case 1:
+            title = 'Create new Identity'
+            break
+          case 2:
+            title = 'Link ID with wallet'
+            break
+        }
+
+        return title
+      }}
+      renderDescription={(currentStep) => {
+        let description = ''
+
+        switch (currentStep) {
+          case 0:
+            description = 'Set up your decentralized identity and create your web3 profile page'
+            break
+          case 1:
+            description = 'Copy the following seed phrase'
+            break
+          case 2:
+            description = 'This links your digital ID with your currently active wallet. This can be unlinked at any time.'
+            break
+        }
+
+        return description
+      }}
+      renderBody={(currentStep, nextStep) => {
+        let component
+
+        switch (currentStep) {
+          case 0:
+            component = <FlexColumn align='stretch' gap={16}>
+              <Button variant='secondary'>Recover Wallet</Button>
+              <Button variant='primary' onClick={nextStep}>Continue</Button>
+            </FlexColumn>
+            break
+          case 1:
+            component = <FlexColumn gap={16} align='stretch'>
+              <div style={{ paddingBottom: '24px' }}>
+                <SeedPhrase seedphrase={['local', 'all', 'weekend', 'swim', 'spy', 'vague', 'cat', 'cage', 'stone', 'leave', 'benefit', 'mask']} />
+              </div>
+              <Button variant='secondary'>Copy Seed Phrase</Button>
+              <Button variant='primary' onClick={nextStep}>Continue</Button>
+            </FlexColumn>
+            break
+          case 2:
+            component = <FlexColumn align='stretch' gap={16}>
+              <Button variant='primary'>Sign</Button>
+            </FlexColumn>
+            break
+        }
+
+        return component
+      }}
+    />
+    )
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -1,0 +1,193 @@
+@import "scss/font_mixins";
+@import "scss/mixins";
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsla(230, 8%, 8%, 0.8);
+  backdrop-filter: blur(8px);
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1050;
+
+  &.small__bottom__overlay {
+    align-items: flex-end;
+  }
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  background: var(--token-dark-200);
+  position: relative;
+
+  padding: 64px 24px 32px;
+  width: 390px;
+  height: 100vh;
+
+  @media (max-width: 600px) {
+    padding: 48px 20px;
+    width: calc(100% - 40px);
+  }
+
+  @include extension {
+    padding: 40px 24px;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+
+    border: 0;
+    border-radius: 0;
+  }
+
+  &.minimal {
+    width: fit-content !important;
+    height: fit-content !important;
+    padding: 0 !important;
+  }
+
+  &.small__bottom {
+    padding: 24px;
+    width: 100%;
+    background-color: var(--token-dark-500);
+
+    height: fit-content !important;
+    border-radius: 16px;
+    gap: 8px;
+  }
+}
+
+.close {
+  font-size: 24px;
+  color: var(--token-light-100);
+}
+
+.back__button {
+  font-size: 24px;
+  color: var(--token-light-100);
+}
+
+.header__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header {
+  width: 100%;
+}
+
+.icon {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.title {
+  @include Large;
+  font-weight: 600;
+
+  &.center__title {
+    @include Medium-Large;
+    text-align: center;
+  }
+}
+
+.subtitle {
+  @include X-Small;
+  color: var(--token-light-100);
+  margin-top: 4px;
+}
+
+@include extension {
+  .title {
+    text-align: left;
+  }
+
+  .subtitle {
+    text-align: left;
+  }
+
+  .close {
+    margin: 24px 0;
+  }
+}
+
+.confirm {
+  font-size: inherit;
+}
+
+.footer {
+  margin-top: 8px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .line__1 {
+    width: 100%;
+    height: 14px;
+    border-radius: 4px;
+    background: var(--token-dark-700, #2A2B32);
+  }
+
+  .line__2 {
+    width: 55%;
+    height: 12px;
+    border-radius: 4px;
+    background: var(--token-dark-700, #2A2B32);
+  }
+}
+
+.main {
+  flex: 1;
+  overflow-y: scroll;
+  max-height: 100%;
+
+  @include extension {
+    max-height: 90vh;
+  }
+}
+
+.button__override {
+  margin-top: 24px;
+}
+
+.border__radius {
+  border-radius: 8px;
+}
+
+.force__extension {
+  // This is a hack to force the extension to use the extension styles
+  padding: 40px 24px;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+
+  border: 0;
+  border-radius: 0;
+
+  .main {
+    max-height: 90vh;
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  .subtitle {
+    text-align: left;
+  }
+}

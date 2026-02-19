@@ -1,0 +1,35 @@
+.image__wrapper {
+  position: relative;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.medium {
+    height: 24px;
+    width: 24px;
+  }
+
+  &.small {
+    height: 14px;
+    width: 14px;
+  }
+
+  &.x__small {
+    height: 10px;
+    width: 10px;
+  }
+
+  img {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+
+    &.loaded {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 101;
+    }
+  }
+}

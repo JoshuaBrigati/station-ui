@@ -1,0 +1,85 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks";
+import { RequiredText } from "../../../DocsHelpers.tsx";
+import * as NftCardStories from "./NftCard.stories.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Cards/Nft" />
+
+# NftCard
+
+##### A Card to display an nft.
+
+## Props
+- **`chainImg`** - <RequiredText /> - `string` - The chain image url associated with the nft.
+- **`chainName`** - <RequiredText /> - `string` - The chain name associated with the nft.
+- **`currencySymbol`** - `string` - The symbol of the currency ($).
+- **`nftImage`** - <RequiredText /> - `string` - The nft main image url.
+- **`nftImageLabel`** - <RequiredText /> - `string` - The nft main image label.
+- **`nftName`** - <RequiredText /> - `string` - The nft name.
+- **`tokenImg`** - <RequiredText /> - `string` - The image url of the token.
+- **`tokenName`** - <RequiredText /> - `string` - The name the token.
+- **`tokenValue`** - <RequiredText /> - `number` - How many tokens the nft is worth.
+
+## Import
+```jsx
+import { NftCard } from "station-ui";
+```
+
+## Stories
+
+## Default
+<div className="story_with_source_below">
+  <Canvas of={NftCardStories.Default} />
+  <Source code={`
+<NftCard
+  chainImg="https://station-assets.terra.dev/img/chains/Terra.svg"
+  chainName="Terra"
+  nftImage="https://raw.githubusercontent.com/terra-money/validator-images/main/images/F87ADDB700C0CC94.jpg"
+  nftImageLabel="NFT Num 1"
+  nftName="EVOL #3332"
+  tokenImg="https://station-assets.terra.dev/img/coins/Luna.svg"
+  tokenName="LUNA"
+  tokenValue={355.62}
+/>
+  `} />
+</div>
+
+## Default With Symbol
+<div className="story_with_source_below">
+  <Canvas of={NftCardStories.DefaultWithSymbol} />
+  <Source code={`
+<NftCard
+  chainImg="https://station-assets.terra.dev/img/chains/Osmosis.svg"
+  chainName="Osmosis"
+  nftImage="https://raw.githubusercontent.com/terra-money/validator-images/main/images/F87ADDB700C0CC94.jpg"
+  nftImageLabel="NFT Num 1"
+  nftName="EVOL #3332"
+  tokenImg="https://station-assets.terra.dev/img/coins/axlUSDC.svg"
+  tokenName="axlUSDC"
+  currencySymbol="$"
+  tokenValue={177.54}
+/>
+  `} />
+</div>
+
+## Skeleton
+<div className="story_with_source_below">
+  <Canvas of={NftCardStories.Skeleton} />
+  <Source code={`
+<NftSkeleton />
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

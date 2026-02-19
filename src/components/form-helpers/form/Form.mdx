@@ -1,0 +1,135 @@
+import { Meta, Story, Canvas, Controls, ArgTypes, Description, Source } from '@storybook/addon-docs/blocks';
+import Form from './Form';
+import * as FormStories from './Form.stories';
+import 'scss/storybookoverrides.scss';
+
+<Meta title='Components/Form' of={FormStories} />
+
+# Form
+Wraps a form with a submit button. Should be used with [useForm] from react-hook-form.
+
+## Imports
+```tsx
+import Form from "@terra-money/station-ui"
+```
+
+## Props
+- **`fullHeight`** - Adds `width: 100%` to the form.
+- **`spaceBetween`** - Adds `justify-content: space-between` to the form.
+- **`extends HTMLAttributes<HTMLFormElement>`**
+
+# Stories
+
+## FullFormExample
+This is an example of Form in use with but fullHeight and spaceBetween true.
+
+<div className="story_with_source_below">
+  <Canvas of={FormStories.FullFormExample} />
+  <Source code={`
+    const { register, handleSubmit, formState } = useForm();
+const { errors } = formState;
+const onSubmit = handleSubmit(data => console.log(data));
+
+return (
+  <Form onSubmit={onSubmit} spaceBetween fullHeight>
+    <FlexColumn gap={24}>
+      <InputWrapper label='First Name' error={errors?.first?.message as string | undefined}>
+        <Input
+          placeholder='Name'
+          {...register('first', {
+            required: true,
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: "Entered value does not match email format",
+            },
+          })}
+        />
+      </InputWrapper>
+      <InputWrapper label='Last Name' error={errors?.last?.message as string | undefined}>
+        <Input
+          placeholder='Name'
+          {...register('last', { required: true })}
+        />
+      </InputWrapper>
+    </FlexColumn>
+    <SubmitButton type='submit'>Submit</SubmitButton>
+  </Form>
+)
+  `} />
+</div>
+
+## No Props
+example with fullHeight and spaceBetween false
+
+<div className="story_with_source_below">
+  <Canvas of={FormStories.NoProps} />
+  <Source code={`
+    const { register, handleSubmit, formState } = useForm();
+const { errors } = formState;
+const onSubmit = handleSubmit(data => console.log(data));
+
+return (
+  <Form onSubmit={onSubmit}>
+    <FlexColumn gap={24}>
+      <InputWrapper label='First Name' error={errors?.first?.message as string | undefined}>
+        <Input
+          placeholder='Name'
+          {...register('first', {
+            required: true,
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: "Entered value does not match email format",
+            },
+          })}
+        />
+      </InputWrapper>
+      <InputWrapper label='Last Name' error={errors?.last?.message as string | undefined}>
+        <Input
+          placeholder='Name'
+          {...register('last', { required: true })}
+        />
+      </InputWrapper>
+    </FlexColumn>
+    <SubmitButton type='submit'>Submit</SubmitButton>
+  </Form>
+)
+  `} />
+</div>
+
+## With Space Between And Full Height
+This is an example of Form in use with but fullHeight and spaceBetween true.
+
+<div className="story_with_source_below">
+  <Canvas of={FormStories.WithSpaceBetweenAndFullHeight} />
+  <Source code={`
+    const { register, handleSubmit, formState } = useForm();
+const { errors } = formState;
+const onSubmit = handleSubmit(data => console.log(data));
+
+return (
+  <Form onSubmit={onSubmit}>
+    <FlexColumn gap={24}>
+      <InputWrapper label='First Name' error={errors?.first?.message as string | undefined}>
+        <Input
+          placeholder='Name'
+          {...register('first', {
+            required: true,
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: "Entered value does not match email format",
+            },
+          })}
+        />
+      </InputWrapper>
+      <InputWrapper label='Last Name' error={errors?.last?.message as string | undefined}>
+        <Input
+          placeholder='Name'
+          {...register('last', { required: true })}
+        />
+      </InputWrapper>
+    </FlexColumn>
+    <SubmitButton type='submit'>Submit</SubmitButton>
+  </Form>
+)
+  `} />
+</div>

@@ -1,0 +1,174 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks"
+import { RequiredText } from "../../../../DocsHelpers.tsx"
+import * as AssetListItemStories from "./AssetListItem.stories.tsx"
+import "scss/storybookoverrides.scss"
+
+<Meta title="Dashboard/List Items/Asset" />
+
+# AssetListItem
+
+##### List item for the Asset page. does not contain background.
+
+## Props
+- **`currencySymbol`** - <RequiredText /> - `string` - The symbol of the currency used in the list item.
+<br />
+
+- **`firstColumn`** - <RequiredText /> - `object` - The first column of the list item.
+- - **`symbol`** - <RequiredText /> - `string` - The symbol of the token.
+- - **`symbolIcon`** - <RequiredText /> - `string` - The icon of the token.
+- - **`chainName`** - <RequiredText /> - `string` - The name of the chain.
+- - **`chainIcon`** - <RequiredText /> - `string` - The icon of the chain.
+<br />
+
+- **`secondColumn`** - <RequiredText /> - `object` - The second column of the list item.
+- - **`currentPrice`** - <RequiredText /> - `number` - The current price of the token.
+<br />
+
+- **`thirdColumn`** - <RequiredText /> - `object` - The third column of the list item.
+- - **`percentage`** - <RequiredText /> - `boolean` - How much the token went up or down in the selected period.
+<br />
+
+- **`fourthColumn`** - <RequiredText /> - `object` - The fourth column of the list item.
+- - **`symbol`** - <RequiredText /> - `string` - The symbol of the token.
+- - **`currencyAmount`** - <RequiredText /> - `number` -  The amount of currency.
+- - **`tokenAmount`** - <RequiredText /> - `string` - The amount of tokens.
+<br />
+
+## Import
+```jsx
+import { AssetListItem } from "@terra-money/station-ui"
+```
+
+## Stories
+
+## ListItemWrapper Example
+<div className="story_with_source_below">
+<Canvas of={AssetListItemStories.ListAssetWrapperExample} />
+  <Source code={`
+<ListItemWrapperCard>
+  <FlexColumn gap={24}>
+    <AssetListItem
+      currencySymbol="$"
+      firstColumn={{
+        symbol: "LUNA",
+        symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+        chainName: "Terra",
+        chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+      }}
+      secondColumn={{
+        currentPrice: 0.4655,
+      }}
+      thirdColumn={{
+        percentage: 1.44,
+      }}
+      fourthColumn={{
+        symbol: "LUNA",
+        currencyAmount: 256.55 * .46,
+        tokenAmount: 256.55,
+      }}
+    />
+
+    <AssetListItem
+      currencySymbol="$"
+      firstColumn={{
+        symbol: "bLUNA",
+        symbolIcon: "https://station-assets.terra.dev/img/coins/bLuna.png",
+        chainName: "Migaloo",
+        chainIcon: "https://station-assets.terra.dev/img/chains/Migaloo.svg",
+      }}
+      secondColumn={{
+        currentPrice: 0.881,
+      }}
+      thirdColumn={{
+        percentage: -0.01,
+      }}
+      fourthColumn={{
+        symbol: "LUNA",
+        currencyAmount: 13.97 * .88,
+        tokenAmount: 13.97,
+      }}
+    />
+  </FlexColumn>
+</ListItemWrapperCard>
+  `} />
+</div>
+
+## Asset Positive
+<div className="story_with_source_below">
+  <Canvas of={AssetListItemStories.AssetPositive} />
+  <Source code={`
+<AssetListItem
+  currencySymbol="$"
+  firstColumn={{
+    symbol: "LUNA",
+    symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+    chainName: "Terra",
+    chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+  }}
+  secondColumn={{
+    currentPrice: 0.4655,
+  }}
+  thirdColumn={{
+    percentage: 1.44,
+  }}
+  fourthColumn={{
+    symbol: "LUNA",
+    currencyAmount: 256.55 * .46,
+    tokenAmount: 256.55,
+  }}
+/>
+  `} />
+</div>
+
+## Asset Negative
+<div className="story_with_source_below">
+  <Canvas of={AssetListItemStories.AssetNegative} />
+  <Source code={`
+<AssetListItem
+  currencySymbol="$"
+  firstColumn={{
+    symbol: "LUNA",
+    symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+    chainName: "Terra",
+    chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+  }}
+  secondColumn={{
+    currentPrice: 0.4655,
+  }}
+  thirdColumn={{
+    percentage: -1.44,
+  }}
+  fourthColumn={{
+    symbol: "LUNA",
+    currencyAmount: 256.55 * .46,
+    tokenAmount: 256.55,
+  }}
+/>
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -1,0 +1,67 @@
+@import "scss/font_mixins";
+
+.profile__container {
+  background-color: var(--token-dark-300);
+  border-radius: 8px;
+
+  .profile__cover__img {
+    max-height: 40px;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+  }
+
+  .profile__user {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+
+    .profile__user__row {
+      display: flex;
+      gap: 24px;
+
+      .profile__user__img {
+        width: 152px;
+        height: 152px;
+        border: 1px var(--token-dark-300);
+        border-radius: 4px;
+        box-shadow: 0 2px 24px 0 var(--token-dark-100);
+        object-fit: cover;
+      }
+
+      .profile__user__info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .profile__socials__container {
+        margin-top: 24px;
+      }
+    }
+  }
+
+  .profile__user__actions {
+    display: flex;
+    height: fit-content;
+    gap: 16px;
+
+    button {
+      min-width: 100px;
+      min-height: 40px;
+    }
+  }
+
+  h3 {
+    @include Medium-Large;
+    color: var(--token-light-white);
+    font-weight: 600;
+  }
+
+  h4 {
+    @include Small;
+    color: var(--token-light-100);
+  }
+}

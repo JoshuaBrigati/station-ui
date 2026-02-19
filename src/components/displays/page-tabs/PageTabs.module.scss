@@ -1,0 +1,26 @@
+@import "scss/font_mixins";
+
+.page__tabs__container {
+  display: flex;
+  justify-content: space-around;
+
+  .tab {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 0px;
+    border-bottom: 1px solid var(--token-dark-100);
+
+    @include Small;
+    color: var(--token-dark-900);
+
+    &.active {
+      border-bottom: 1px solid var(--token-primary-500);
+      color: var(--token-light-white);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

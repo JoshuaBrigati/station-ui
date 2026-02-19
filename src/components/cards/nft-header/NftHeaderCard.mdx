@@ -1,0 +1,50 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks";
+import { RequiredText } from "../../../DocsHelpers.tsx";
+import * as NftHeaderCardStories from "./NftHeaderCard.stories.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Cards/NftHeaderCard" />
+
+# NftHeaderCard
+
+##### A Card to display the nft header info.
+
+## Props
+- **`address`** - <RequiredText /> - `string` - The address of the wallet.
+- **`collectionImg`** - <RequiredText /> - `string` - The collection image associated with the nft.
+- **`collectionName`** - <RequiredText /> - `string` - The collection name associated with the nft.
+
+## Import
+```jsx
+import { NftHeaderCard } from "station-ui";
+```
+
+## Stories
+
+## Default
+<div className="story_with_source_below">
+  <Canvas of={NftHeaderCardStories.Default} />
+  <Source code={`
+<div style={{ width: "630px" }}>
+  <NftHeaderCard
+    address="terra5dnwe3fc...pazdy5"
+    collectionImg="https://raw.githubusercontent.com/terra-money/validator-images/main/images/F87ADDB700C0CC94.jpg"
+    collectionName="Department 77: Echo MK1"
+  />
+</div>
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

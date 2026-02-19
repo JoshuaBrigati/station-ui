@@ -1,0 +1,61 @@
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks'
+import { RequiredText } from "../../../DocsHelpers.tsx"
+import * as ChainLoaderStories from "./ChainLoader.stories.tsx"
+import ChainLoader from "./ChainLoader.tsx"
+import "scss/storybookoverrides.scss"
+
+<Meta title="Components/Displays/Chain Loader" />
+
+# Chain Loader
+
+Displays a loader bar for chains that are loading.
+
+## Import
+```jsx
+import { ChainLoader } from "terra-money/station-ui"
+```
+
+## Chain Loader Props
+- **`count`** - <RequiredText /> - `number` - Current chains that have been successfully loaded.
+- **`total`** - <RequiredText /> - `number` - Total chains to be loaded.
+- **`textLabel`** - `string` - Label for the chain loader.
+
+## Stories
+
+## Chain Loader
+<div className="story_with_source_below">
+  <Canvas withSource="none">
+    <Story id='components-displays-chain-loader-stories--default' />
+  </Canvas>
+  <Source code={`
+    return (
+      <ChainLoader
+    count={1}
+    total={3}
+    textLabel={t("Chains Loading")}
+  />
+  )
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

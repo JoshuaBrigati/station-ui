@@ -1,0 +1,100 @@
+import { Meta, Story, Canvas, Controls, ArgTypes, Description, Source } from '@storybook/addon-docs/blocks';
+import { RequiredText } from "../../../DocsHelpers.tsx";
+import * as HeaderListStories from "./HeaderList.stories.tsx";
+import HeaderList from "./HeaderList.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Displays/Header List" />
+
+# Header List
+
+A list component with a title and a custom colored circle.
+
+## Import
+```jsx
+import { HeaderList } from "station-ui";
+```
+
+## Header List Props
+
+- **`color`** - `string` - The color used to render the circle.
+- **`title`** - <RequiredText /> - `string` - The title of the list.
+- **`renderList`** - <RequiredText /> - `Array<React.ReactNode>` - A list of components to render.
+
+## Stories
+
+## With Colored Circle
+A list with orange circle and 50 verifiable credentials to claim (scrollable)
+<div className="story_with_source_below">
+  <Canvas withSource="none">
+    <Story id='components-displays-header-list-stories--with-colored-circle' />
+  </Canvas>
+  <Source code={`
+const arr: Array<React.ReactNode> = []
+for (let i = 0; i < 50; i++) {
+  arr.push(<Credential
+    chain={{ icon: "https://raw.githubusercontent.com/terra-money/validator-images/main/images/A2879F08F59FB0AF.jpg", label: "Terra" }}
+    title="DAO Admin @ Orbital Command"
+    description={"Issued by Orbital Command on 18 Oct 2023 at 15:55 UTC"}
+    type={"DAO_ADMIN"}
+    claimed={false}
+    onClaimClick={() => alert('claimed')}
+    onRejectClick={() => alert('rejected')}
+  />)
+}
+
+return (<HeaderList
+  title="Unclaimed Credentials"
+  color="var(--token-warning-500)"
+  renderList={arr}
+)
+  `} />
+</div>
+
+## Without Colored Circle
+A list 50 verifiable credentials to claim (scrollable)
+<div className="story_with_source_below">
+  <Canvas withSource="none">
+    <Story id='components-displays-header-list-stories--without-colored-circle' />
+  </Canvas>
+  <Source code={`
+const arr: Array<React.ReactNode> = []
+for (let i = 0; i < 50; i++) {
+  arr.push(<Credential
+    chain={{ icon: "https://raw.githubusercontent.com/terra-money/validator-images/main/images/A2879F08F59FB0AF.jpg", label: "Terra" }}
+    title="DAO Admin @ Orbital Command"
+    description={"Issued by Orbital Command on 18 Oct 2023 at 15:55 UTC"}
+    type={"DAO_ADMIN"}
+    claimed={true}
+  />)
+}
+
+return (<HeaderList
+  title="Unclaimed Credentials"
+  color="var(--token-warning-500)"
+  renderList={arr}
+)
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

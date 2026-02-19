@@ -1,0 +1,91 @@
+@import "scss/font_mixins";
+
+.page__header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--token-dark-700, #2A2B32);
+  margin-bottom: 32px;
+
+  .mobile__hamburger {
+    display: none;
+  }
+
+  .left__side {
+    display: flex;
+    gap: 16px;
+
+    .page__icon {
+      padding: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--token-dark-700, #2A2B32);
+
+      svg {
+        min-width: 24px;
+        max-height: 24px;
+      }
+    }
+
+    .text__container {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        @include Medium-Large;
+        color: var(--token-light-white, #FFF);
+      }
+
+      .subtitle {
+        @include X-SmallLH;
+        color: var(--token-dark-900, #5E616E);
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0px;
+    border-bottom: none;
+
+    .mobile__hamburger {
+      position: absolute;
+      left: 0;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .left__side {
+      align-items: center;
+      gap: 8px;
+
+      .page__icon {
+        display: none;
+      }
+
+      .text__container {
+        .title {
+          @include Large;
+        }
+        .subtitle {
+          display: none;
+        }
+      }
+    }
+
+    .right__side {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "fontWeight": {
+    "medium": {
+      "value": "500",
+      "type": "fontWeight"
+    },
+    "bold": {
+      "value": "600",
+      "type": "fontWeight"
+    }
+  }
+}

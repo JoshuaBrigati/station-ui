@@ -1,0 +1,57 @@
+@import "scss/font_mixins";
+
+.nft__sale__container {
+  .first {
+    height: 96px;
+    background: var(--token-dark-600);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0px 2px 24px rgba(19, 19, 22, 0.4);
+
+    .dashed__line {
+      width: 1px;
+      height: 48px;
+      background: var(--token-dark-900);
+      opacity: 0.33;
+    }
+
+    .info__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .collection__image {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+    }
+
+    h3,
+    .countdown {
+      @include Large;
+      color: var(--token-light-white);
+    }
+
+    h5 {
+      @include X-Small;
+      color: var(--token-light-100);
+    }
+  }
+
+  .nft__options__container {
+    padding: 0 24px;
+
+    .second {
+      height: 94px;
+      padding: 24px;
+      background: var(--token-dark-300);
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+}

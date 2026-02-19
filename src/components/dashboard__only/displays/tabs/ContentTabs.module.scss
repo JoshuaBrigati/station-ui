@@ -1,0 +1,41 @@
+@import "scss/font_mixins";
+
+.tabs__container {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+
+  .border {
+    height: 1px;
+    width: 100%;
+    background-color: var(--token-dark-700, #2A2B32);
+    position: absolute;
+    bottom: 0;
+  }
+
+  .tab__container {
+    display: flex;
+    gap: 8px;
+  }
+
+  button {
+    @include SmallLH;
+    color: var(--token-dark-900);
+    padding: 16px 32px;
+    border-radius: 8px 8px 0 0;
+    background: var(--token-dark-200, #17181C);
+    display: flex;
+    gap: 8px;
+  }
+
+  .active {
+    background-color: var(--token-dark-100);
+    color: var(--token-light-white);
+    border: 1px solid var(--token-dark-700, #2A2B32);
+    border-bottom: 1px solid var(--token-dark-100, #131316);
+    background: var(--token-dark-100, #131316);
+    z-index: 1;
+  }
+}

@@ -1,0 +1,602 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks"
+import { RequiredText } from "../../../../DocsHelpers.tsx"
+import * as StakeListItemStories from "./StakeListItem.stories.tsx"
+import "scss/storybookoverrides.scss"
+
+<Meta title="Dashboard/List Items/Stake" />
+
+# StakeListItem
+
+##### List item for the Stake page. does not contain background.
+
+## Props
+- **`variant`** - <RequiredText /> - `"default" | "staked" | "unstaked"` - Used to determine the styling of the list item.
+- **`currencySymbol`** - <RequiredText /> - `string` - The symbol of the currency used in the list item.
+<br />
+
+- **`firstColumn`** - <RequiredText /> - `object` - The first column of the list item.
+- - **`symbol`** - <RequiredText /> - `string` - The symbol of the token.
+- - **`symbolIcon`** - <RequiredText /> - `string` - The icon of the token.
+- - **`chainName`** - <RequiredText /> - `string` - The name of the chain.
+- - **`chainIcon`** - <RequiredText /> - `string` - The icon of the chain.
+<br />
+
+- **`secondColumn`** - <RequiredText /> - `object` - The second column of the list item.
+- - **`tokenAmount`** - <RequiredText /> - `number` - The amount of tokens.
+- - **`tokenSymbol`** - <RequiredText /> - `string` - The symbol of the token.
+- - **`currencyAmount`** - <RequiredText /> - `number` - The amount of currency.
+<br />
+
+- **`thirdColumn`** - <RequiredText /> - `object` - The third column of the list item.
+- - **`isAlliance`** - <RequiredText /> - `boolean` - Whether or not the token is an alliance token.
+<br />
+
+- **`fourthColumn`** - <RequiredText /> - `object` - The fourth column of the list item.
+- - **`variant`** - <RequiredText /> - `"default" | "staked" | "unstaking"` - Used to determine the styling of the fourth column.
+- - **`defaultUnstakeDays`** - `number` - The default amount of days to unstake.
+- - **`claimableCurrencyAmount`** - `number` - The amount of currency that can be claimed.
+- - **`unstakingTimer`** - `string` - The amount of time until unstaking is complete.
+<br />
+
+- **`fifthColumn`** - <RequiredText /> - `object` - The fifth column of the list item.
+- - **`variant`** - <RequiredText /> - `"default" | "staked" | "unstaked"` - Used to determine the styling of the fifth column.
+- - **`defaultAPR`** - `number` - The default APR.
+- - **`stakedDetails`** - `object` - The details of the staked token.
+    - **`validatorName`** - <RequiredText /> - `string` - The name of the validator.
+    - **`validatorCommission`** - <RequiredText /> - `number` - The commission of the validator.
+- - **`unstakedDetails`** - `object` - The details of the unstaked token.
+    - **`validatorName`** - <RequiredText /> - `string` - The name of the validator.
+    - **`validatorCommission`** - <RequiredText /> - `number` - The commission of the validator.
+<br />
+- **`sixthColumn`** - <RequiredText /> - `object` - The sixth column of the list item.
+- - **`variant`** - <RequiredText /> - `"default" | "staked" | "unstaked"` - Used to determine the styling of the sixth column.
+- - **`manageOnClick`** - `function` - The function to call when the manage button is clicked.
+- - **`newStakeOnClick`** - `function` - The function to call when the new stake button is clicked.
+- - **`buttonDisabled`** - `boolean` - Whether or not the button is disabled.
+
+## Import
+```jsx
+import { StakeListItem } from "@terra-money/station-ui"
+```
+
+## Stories
+
+## ListItemWrapper Example
+<div className="story_with_source_below">
+  <Canvas of={StakeListItemStories.ListItemWrapperExample} />
+  <Source code={`
+<ListItemWrapperCard>
+  <FlexColumn gap={24}>
+    <StakeListItem
+      variant="default"
+      currencySymbol="$"
+      firstColumn={{
+        symbol: "LUNA",
+        symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+        chainName: "Terra",
+        chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+      }}
+      secondColumn={{
+        tokenAmount: 1492.77,
+        tokenSymbol: "Luna",
+        currencyAmount: 1492.77 * .55,
+      }}
+      thirdColumn={{
+        isAlliance: true,
+      }}
+      fourthColumn={{
+        variant: "default",
+        defaultUnstakeDays: 30,
+      }}
+      fifthColumn={{
+        variant: "default",
+        defaultAPR: 21.55,
+      }}
+      sixthColumn={{
+        variant: "default",
+        newStakeOnClick: () => console.log("new stake"),
+      }}
+    />
+
+    <StakeListItem
+      variant="staked"
+      currencySymbol="$"
+      firstColumn={{
+        symbol: "LUNA",
+        symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+        chainName: "Terra",
+        chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+      }}
+      secondColumn={{
+        tokenAmount: 500,
+        tokenSymbol: "Luna",
+        currencyAmount: 500 * .55,
+      }}
+      thirdColumn={{
+        isAlliance: false,
+      }}
+      fourthColumn={{
+        variant: "staked",
+        claimableCurrencyAmount: 38.93,
+      }}
+      fifthColumn={{
+        variant: "staked",
+        stakedDetails: {
+          validatorName: "Orbital Command",
+          validatorCommission: 5.00,
+        },
+      }}
+      sixthColumn={{
+        variant: "staked",
+        newStakeOnClick: () => console.log("new stake"),
+      }}
+    />
+
+    <StakeListItem
+      variant="unstaked"
+      currencySymbol="$"
+      firstColumn={{
+        symbol: "LUNA",
+        symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+        chainName: "Terra",
+        chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+      }}
+      secondColumn={{
+        tokenAmount: 500,
+        tokenSymbol: "Luna",
+        currencyAmount: 500 * .55,
+      }}
+      thirdColumn={{
+        isAlliance: false,
+      }}
+      fourthColumn={{
+        variant: "unstaking",
+        unstakingTimer: "2 days",
+      }}
+      fifthColumn={{
+        variant: "unstaked",
+        unstakedDetails: {
+          validatorName: "Orbital Commandddddddd",
+          validatorCommission: 5.00,
+        },
+      }}
+      sixthColumn={{
+        variant: "unstaked",
+        newStakeOnClick: () => console.log("new stake"),
+      }}
+    />
+  </FlexColumn>
+</ListItemWrapperCard>
+  `} />
+</div>
+
+## Default (Available To Stake)
+<div className="story_with_source_below">
+  <Canvas of={StakeListItemStories.AvailableToStake} />
+  <Source code={`
+    <StakeListItem
+  variant="default"
+  currencySymbol="$"
+  firstColumn={{
+    symbol: "LUNA",
+    symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+    chainName: "Terra",
+    chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+  }}
+  secondColumn={{
+    tokenAmount: 1492.77,
+    tokenSymbol: "Luna",
+    currencyAmount: 1492.77 * .55,
+  }}
+  thirdColumn={{
+    isAlliance: true,
+  }}
+  fourthColumn={{
+    variant: "default",
+    defaultUnstakeDays: 30,
+  }}
+  fifthColumn={{
+    variant: "default",
+    defaultAPR: 21.55,
+  }}
+  sixthColumn={{
+    variant: "default",
+    newStakeOnClick: () => console.log("new stake"),
+  }}
+/>
+  `} />
+</div>
+
+## Staked
+<div className="story_with_source_below">
+  <Canvas of={StakeListItemStories.Staked} />
+  <Source code={`
+    <StakeListItem
+  variant="staked"
+  currencySymbol="$"
+  firstColumn={{
+    symbol: "LUNA",
+    symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+    chainName: "Terra",
+    chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+  }}
+  secondColumn={{
+    tokenAmount: 500,
+    tokenSymbol: "Luna",
+    currencyAmount: 500 * .55,
+  }}
+  thirdColumn={{
+    isAlliance: false,
+  }}
+  fourthColumn={{
+    variant: "staked",
+    claimableCurrencyAmount: 38.93,
+  }}
+  fifthColumn={{
+    variant: "staked",
+    stakedDetails: {
+      validatorName: "Orbital Command",
+      validatorCommission: 5.00,
+    },
+  }}
+  sixthColumn={{
+    variant: "staked",
+    newStakeOnClick: () => console.log("new stake"),
+  }}
+/>
+  `} />
+</div>
+
+## Unstaking
+<div className="story_with_source_below">
+  <Canvas of={StakeListItemStories.Unstaking} />
+  <Source code={`
+    <StakeListItem
+  variant="unstaked"
+  currencySymbol="$"
+  firstColumn={{
+    symbol: "LUNA",
+    symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+    chainName: "Terra",
+    chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+  }}
+  secondColumn={{
+    tokenAmount: 500,
+    tokenSymbol: "Luna",
+    currencyAmount: 500 * .55,
+  }}
+  thirdColumn={{
+    isAlliance: false,
+  }}
+  fourthColumn={{
+    variant: "unstaking",
+    unstakingTimer: "2 days",
+  }}
+  fifthColumn={{
+    variant: "unstaked",
+    unstakedDetails: {
+      validatorName: "Orbital Command",
+      validatorCommission: 5.00,
+    },
+  }}
+  sixthColumn={{
+    variant: "unstaked",
+    newStakeOnClick: () => console.log("new stake"),
+  }}
+/>
+  `} />
+</div>
+
+## Default With Alliance
+<div className="story_with_source_below">
+  <Canvas of={StakeListItemStories.AvailableToStakeWithAlliance} />
+  <Source code={`
+    <StakeListItem
+  variant="default"
+  currencySymbol="$"
+  firstColumn={{
+    symbol: "LUNA",
+    symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+    chainName: "Terra",
+    chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+  }}
+  secondColumn={{
+    tokenAmount: 1492.77,
+    tokenSymbol: "Luna",
+    currencyAmount: 1492.77 * .55,
+  }}
+  thirdColumn={{
+    isAlliance: true,
+  }}
+  fourthColumn={{
+    variant: "default",
+    defaultUnstakeDays: 30,
+  }}
+  fifthColumn={{
+    variant: "default",
+    defaultAPR: 21.55,
+  }}
+  sixthColumn={{
+    variant: "default",
+    newStakeOnClick: () => console.log("new stake"),
+  }}
+/>
+  `} />
+</div>
+
+## FULL STAKE PAGE
+<div className="story_with_source_below">
+  <Canvas of={StakeListItemStories.StakePageExample} />
+  <Source code={`
+    <FlexColumn gap={32} align="stretch">
+  <FlexColumn gap={16} align="stretch">
+    <SectionHeader
+      title="Assets Being Unstaked"
+      icon={<span style={{ height: "8px", width: "8px", background: "var(--token-warning-500)", borderRadius: "50%" }} />}
+      extraSmallText
+    />
+    <ListItemWrapperCard>
+      <FlexColumn gap={24}>
+        <StakeListItem
+          variant="unstaked"
+          currencySymbol="$"
+          firstColumn={{
+            symbol: "LUNA",
+            symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+            chainName: "Terra",
+            chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+          }}
+          secondColumn={{
+            tokenAmount: 500,
+            tokenSymbol: "Luna",
+            currencyAmount: 500 * .55,
+          }}
+          thirdColumn={{
+            isAlliance: false,
+          }}
+          fourthColumn={{
+            variant: "unstaking",
+            unstakingTimer: "2 days",
+          }}
+          fifthColumn={{
+            variant: "unstaked",
+            unstakedDetails: {
+              validatorName: "Orbital Commandddddddd",
+              validatorCommission: 5.00,
+            },
+          }}
+          sixthColumn={{
+            variant: "unstaked",
+            newStakeOnClick: () => console.log("new stake"),
+          }}
+        />
+      </FlexColumn>
+    </ListItemWrapperCard>
+  </FlexColumn>
+  <FlexColumn gap={16} align="stretch">
+    <SectionHeader
+      title="Staked Assets"
+      extraSmallText
+    />
+    <ListItemWrapperCard>
+      <FlexColumn gap={24}>
+        <StakeListItem
+          variant="staked"
+          currencySymbol="$"
+          firstColumn={{
+            symbol: "LUNA",
+            symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+            chainName: "Terra",
+            chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+          }}
+          secondColumn={{
+            tokenAmount: 500,
+            tokenSymbol: "Luna",
+            currencyAmount: 500 * .55,
+          }}
+          thirdColumn={{
+            isAlliance: true,
+          }}
+          fourthColumn={{
+            variant: "staked",
+            claimableCurrencyAmount: 0.00,
+          }}
+          fifthColumn={{
+            variant: "staked",
+            stakedDetails: {
+              validatorName: "Interstake One (prev. BTC.Secure)",
+              validatorCommission: 4.50,
+            },
+          }}
+          sixthColumn={{
+            variant: "staked",
+            newStakeOnClick: () => console.log("new stake"),
+          }}
+        />
+
+        <StakeListItem
+          variant="staked"
+          currencySymbol="$"
+          firstColumn={{
+            symbol: "LUNA",
+            symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+            chainName: "Terra",
+            chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+          }}
+          secondColumn={{
+            tokenAmount: 500,
+            tokenSymbol: "Luna",
+            currencyAmount: 500 * .55,
+          }}
+          thirdColumn={{
+            isAlliance: false,
+          }}
+          fourthColumn={{
+            variant: "staked",
+            claimableCurrencyAmount: 38.93,
+          }}
+          fifthColumn={{
+            variant: "staked",
+            stakedDetails: {
+              validatorName: "Orbital Command",
+              validatorCommission: 5.00,
+            },
+          }}
+          sixthColumn={{
+            variant: "staked",
+            newStakeOnClick: () => console.log("new stake"),
+          }}
+        />
+      </FlexColumn>
+    </ListItemWrapperCard>
+  </FlexColumn>
+  <FlexColumn gap={16} align="stretch">
+    <SectionHeader
+      title="Available To Be Staked"
+      extraSmallText
+    />
+    <ListItemWrapperCard>
+      <FlexColumn gap={24}>
+        <FlexColumn gap={16}>
+          <SectionHeader
+            title="My Assets"
+            withLine
+            extraSmallText
+          />
+          <FlexColumn gap={24}>
+            <StakeListItem
+              variant="default"
+              currencySymbol="$"
+              firstColumn={{
+                symbol: "LUNA",
+                symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+                chainName: "Terra",
+                chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+              }}
+              secondColumn={{
+                tokenAmount: 500,
+                tokenSymbol: "Luna",
+                currencyAmount: 500 * .55,
+              }}
+              thirdColumn={{
+                isAlliance: true,
+              }}
+              fourthColumn={{
+                variant: "default",
+                defaultUnstakeDays: 30,
+              }}
+              fifthColumn={{
+                variant: "default",
+                defaultAPR: 21.55,
+              }}
+              sixthColumn={{
+                variant: "default",
+                newStakeOnClick: () => console.log("new stake"),
+              }}
+            />
+
+            <StakeListItem
+              variant="default"
+              currencySymbol="$"
+              firstColumn={{
+                symbol: "LUNA",
+                symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+                chainName: "Terra",
+                chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+              }}
+              secondColumn={{
+                tokenAmount: 500,
+                tokenSymbol: "Luna",
+                currencyAmount: 500 * .55,
+              }}
+              thirdColumn={{
+                isAlliance: false,
+              }}
+              fourthColumn={{
+                variant: "default",
+                defaultUnstakeDays: 7,
+              }}
+              fifthColumn={{
+                variant: "default",
+                defaultAPR: 9.88
+              }}
+              sixthColumn={{
+                variant: "default",
+                newStakeOnClick: () => console.log("new stake"),
+              }}
+            />
+          </FlexColumn>
+        </FlexColumn>
+
+        <FlexColumn gap={16}>
+          <SectionHeader
+            title="All Staking Assets"
+            withLine
+            extraSmallText
+          />
+          <FlexColumn gap={24}>
+            <StakeListItem
+              variant="default"
+              currencySymbol="$"
+              firstColumn={{
+                symbol: "LUNA",
+                symbolIcon: "https://station-assets.terra.dev/img/coins/Luna.svg",
+                chainName: "Terra",
+                chainIcon: "https://station-assets.terra.dev/img/chains/Terra.svg",
+              }}
+              secondColumn={{
+                tokenAmount: 0,
+                tokenSymbol: "Luna",
+                currencyAmount: 0,
+              }}
+              thirdColumn={{
+                isAlliance: true,
+              }}
+              fourthColumn={{
+                variant: "default",
+                defaultUnstakeDays: 30,
+              }}
+              fifthColumn={{
+                variant: "default",
+                defaultAPR: 21.55,
+              }}
+              sixthColumn={{
+                variant: "default",
+                newStakeOnClick: () => console.log("new stake"),
+                buttonDisabled: true,
+              }}
+            />
+          </FlexColumn>
+        </FlexColumn>
+      </FlexColumn>
+    </ListItemWrapperCard>
+  </FlexColumn>
+</FlexColumn>
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

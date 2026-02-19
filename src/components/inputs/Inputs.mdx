@@ -1,0 +1,477 @@
+import {
+  Meta,
+  Story,
+  Controls
+} from "@storybook/blocks";
+import { RightArrow, DocsLink, RequiredText, InLineDocsLink } from "../../DocsHelpers.tsx";
+import * as BaseInputStories from "./base/BaseInput.stories.tsx";
+import * as InputWrapperStories from "../form-helpers/wrappers/InputWrapper/InputWrapper.stories.tsx";
+import * as InLineInputStories from "./inline/InputInLine.stories.tsx";
+import * as CheckboxStories from "./checkbox/Checkbox.stories.tsx";
+import * as DropdownStories from "./dropdown/Dropdown.stories.tsx";
+import * as TextAreaStories from "./textarea/TextArea.stories.tsx";
+import * as SendAmountStories from "./send-amount/SendAmount.stories.tsx";
+import * as AssetSelectorStories from "./asset-selector/AssetSelector.stories.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Inputs" />
+
+# Inputs
+Different types of user input components.
+* Should typically be wrapper in `<Form />` with [useForm] from react-hook-form.
+
+# Base Input [<InLineDocsLink />](/docs/components-inputs-base--docs)
+
+##### Basic Input component.
+* To add a label and error message, wrap this component in `<InputWrapper />`.
+
+## Props
+- **`actionIcon`** - `**object below**` - This will add a icon to the right side of the input.
+  - **`icon`** - <RequiredText /> - `ReactNode` - The icon to display.
+  - **`onClick`** - `() => void` - The function to run when the icon is clicked.
+- **`emoji`** - `string` - Adds an emoji to the right side of the input.
+  - ***This is not locked to just emojis. Any string can be passed in (for now)***
+
+## Import
+```jsx
+import { Input } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Base" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={BaseInputStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Base" linkToID="subicon">
+      <h6 className="h6">Sub Icon</h6>
+      <Story of={BaseInputStories.SubIcon} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Base" linkToID="emoji">
+      <h6 className="h6">Emoji</h6>
+      <Story of={BaseInputStories.Emoji} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+## InputWrapper Playground
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Base" linkToID="inputwrapper-example">
+      <h6 className="h6">InputWrapper Example </h6>
+      <Story of={InputWrapperStories.Playground} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+    <Controls of={InputWrapperStories.Playground} />
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# InputInLine [<InLineDocsLink />](/docs/components-inputs-inline--docs)
+
+##### An inpit with a label inline (inside) with the input.
+
+## Props
+- **`label`** - <RequiredText /> - `string` - The label next to the checkbox.
+- **`extra`** - `ReactNode` - Adds anything on the right side of the input.
+
+## Import
+```jsx
+import { InputInLine } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Inline" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={InLineInputStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Inline" linkToID="with-text-extra">
+      <h6 className="h6">With Text Extra</h6>
+      <Story of={InLineInputStories.WithTextExtra} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Inline" linkToID="example-with-extra-paste">
+      <h6 className="h6">Example With Extra {"<Paste />"}</h6>
+      <Story of={InLineInputStories.ExampleWithExtraPaste} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# Checkbox [<InLineDocsLink />](/docs/components-inputs-checkbox--docs)
+
+##### This is a checkbox component.
+
+## Props
+- **`label`** - <RequiredText /> - `string` - The label next to the checkbox.
+- **`checked`** - `boolean` - Displays a filled checkbox if true.
+
+## Import
+```jsx
+import { Checkbox } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper">
+    <DocsLink linkToRoute="Components/Inputs/Checkbox" linkToID="unchecked-checkbox">
+      <h6 className="h6">Unchecked</h6>
+      <Story of={CheckboxStories.UncheckedCheckbox} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper">
+    <DocsLink linkToRoute="Components/Inputs/Checkbox" linkToID="checked-checkbox">
+      <h6 className="h6">Checked</h6>
+      <Story of={CheckboxStories.CheckedCheckbox} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper">
+    <DocsLink linkToRoute="Components/Inputs/Checkbox" linkToID="indented">
+      <h6 className="h6">Indented</h6>
+      <Story of={CheckboxStories.Indented} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper">
+    <DocsLink linkToRoute="Components/Inputs/Checkbox" linkToID="disabled-checkbox">
+      <h6 className="h6">Disabled</h6>
+      <Story of={CheckboxStories.DisabledCheckbox} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# Dropdown [<InLineDocsLink />](/docs/components-inputs-dropdown--docs)
+
+##### A dropdown component with icons or text only.
+
+## Props
+- **`variant`** - `"default" | "large" | "dashboard" | "textDisplay"` - The variant of the Dropdown.
+- **`options`** - <RequiredText /> - `**object below[]**` - Options for the Dropdown.
+  - **`value`** - <RequiredText /> - `string` - The value of the option.
+  - **`label`** - <RequiredText /> - `string` - The label of the option.
+  - **`image`** - `string` - The image of the option.
+- **`onChange`** - <RequiredText /> - `(value: string) => void` - The function to run when the value changes.
+- **`value`** - <RequiredText /> - `string` - The value of the selected option.
+- **`withSearch`** - `boolean` - Adds a search input to search options.
+- **`children`** - `ReactNode` - Passing in ReactNodes into this will override the standard option UI.
+- **`setSearchValue`** - `(value: string) => void` - A function passed in to help children options filter.
+- **`width`** - `number` - overrides the width of the dropdown button.
+- **`optionsWidth`** - `number` - overrides the width of the dropdown options container.
+- **`defaultValue`** - `string` - The default value of the dropdown.
+
+## Import
+```jsx
+import { Dropdown } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={DropdownStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="default-with-search">
+      <h6 className="h6">Default With Search</h6>
+      <Story of={DropdownStories.DefaultWithSearch} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="large">
+      <h6 className="h6">Large</h6>
+      <Story of={DropdownStories.Large} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="large-with-search">
+      <h6 className="h6">Large With Search</h6>
+      <Story of={DropdownStories.LargeWithSearch} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="dashboard">
+      <h6 className="h6">Dashboard</h6>
+      <Story of={DropdownStories.Dashboard} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="dashboard-with-search">
+      <h6 className="h6">Dashboard With Search</h6>
+      <Story of={DropdownStories.DashboardWithSearch} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="text-display">
+      <h6 className="h6">Text Display</h6>
+      <Story of={DropdownStories.TextDisplay} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}></div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="multi-select">
+      <h6 className="h6">Default Multi Select</h6>
+      <Story of={DropdownStories.MultiSelect} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="dashboard-multi-select">
+      <h6 className="h6">Dashboard Multi Select</h6>
+      <Story of={DropdownStories.DashboardMultiSelect} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="default-with-label">
+      <h6 className="h6">Default With Label</h6>
+      <Story of={DropdownStories.DefaultWithLabel} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="default-text-only">
+      <h6 className="h6">Default Text Only</h6>
+      <Story of={DropdownStories.DefaultOptionsTextOnly} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="children-override">
+      <h6 className="h6">Children Override</h6>
+      <Story of={DropdownStories.ChildrenOverride} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Dropdown" linkToID="children-override-wsearch">
+      <h6 className="h6">Children Override w/Search</h6>
+      <Story of={DropdownStories.ChildrenOverrideWithSearch} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+# TextArea [<InLineDocsLink />](/docs/components-inputs-textarea--docs)
+
+##### Component for textarea. Has a "readOnly" option.
+
+## Props
+- **`TextareaHTMLAttributes<HTMLTextAreaElement>`**
+
+## Import
+```jsx
+import { TextArea } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/TextArea" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={TextAreaStories.DefaultWithReactHookForm} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/TextArea" linkToID="readonly">
+      <h6 className="h6">Read Only</h6>
+      <Story of={TextAreaStories.ReadOnly} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/TextArea" linkToID="with-inputwrapper-example">
+      <h6 className="h6">With Input Wrapper Example</h6>
+      <Story of={TextAreaStories.WithInputWrapperExample} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/TextArea" linkToID="object-example">
+      <h6 className="h6">Object Example</h6>
+      <Story of={TextAreaStories.ObjectExample} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# SendAmount [<InLineDocsLink />](/docs/components-inputs-send-amount--docs)
+
+##### This is a component for send input.
+It has a dynamic width input... so it will grow and shrink based on the amount of text in the input.
+It is incredible. It was dificult to make. I am proud of it.
+
+## Props
+- **`setValue`** - <RequiredText /> - `any` - The function from react-hook-form to set the value of the input.
+- **`tokenInputAttr`** - <RequiredText /> - `InputHTMLAttributes<HTMLInputElement>` - Attributes from react-hook-form for the **token** input.
+- **`tokenAmount`** - <RequiredText /> - `number` - The input token amount. **Should be watch("*registered input from react-hook-form*")**
+- **`currencyInputAttrs`** - <RequiredText /> - `InputHTMLAttributes<HTMLInputElement>` - Attributes from react-hook-form for the **currency** input.
+- **`currencyAmount`** - <RequiredText /> - `number` - The input amount for the currency. **Should be watch("*registered input from react-hook-form*")**
+- **`symbol`** - <RequiredText /> - `string` - The symbol of the token.
+- **`tokenIcon`** - <RequiredText /> - `string` - The icon of the token.
+- **`currencySymbol`** - <RequiredText /> - `string` - The symbol for the users currency.
+- **`price`** - <RequiredText /> - `number` - The price of the token.
+- **`formState`** - <RequiredText /> - `any` - The formState from react-hook-form.
+
+## Import
+```jsx
+import { SendAmount } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/Send Amount" linkToID="example">
+      <h6 className="h6">Example</h6>
+      <Story of={SendAmountStories.Example} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# Asset Selectors [<InLineDocsLink />](/docs/components-inputs-assetselector--docs)
+
+##### This is for selecting assets on the Swap page.
+`To` and `From` are slightly different.
+
+## AssetSelector `From` Props
+- **`extra`** - <RequiredText /> - `ReactNode` - Light text on the top of the box. Should be token amount in the user wallet.
+- **`symbol`** - <RequiredText /> - `string` - The symbol of the token.
+- **`tokenIcon`** - <RequiredText /> - `string` - The icon of the token.
+- **`onSymbolClick`** - <RequiredText /> - `() => void` - Controls what happens when the token dropdown is clicked.
+- **`chainIcon`** - <RequiredText /> - `string` - The icon of the selected tokens chain.
+- **`chainName`** - <RequiredText /> - `string` - The name of the selected tokens chain.
+- **`amountInputAttrs`** - <RequiredText /> - `InputHTMLAttributes<HTMLInputElement>` - Attributes from react-hook-form or others.
+- **`currencyAmount`** - <RequiredText /> - `string` - The amount converted to currency price. *Include the currency symbol*.
+
+## AssetSelector `To` Props
+- **`extra`** - <RequiredText /> - `ReactNode` - Light text on the top of the box. Should be token amount in the user wallet.
+- **`symbol`** - <RequiredText /> - `string` - The symbol of the token.
+- **`tokenIcon`** - <RequiredText /> - `string` - The icon of the token.
+- **`onSymbolClick`** - <RequiredText /> - `() => void` - Controls what happens when the token dropdown is clicked.
+- **`chainIcon`** - <RequiredText /> - `string` - The icon of the selected tokens chain.
+- **`chainName`** - <RequiredText /> - `string` - The name of the selected tokens chain.
+- **`amount`** - <RequiredText /> - `string` - The amount a user will get on this token based off of the "From" input.
+- **`currencyAmount`** - <RequiredText /> - `string` - The amount converted to currency price. *Include the currency symbol*.
+
+## Import
+```jsx
+import { AssetSelectorFrom, AssetSelectorTo } from "station-ui";
+```
+
+## Combined Example
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/AssetSelector" linkToID="example">
+      <h6 className="h6">Example</h6>
+      <Story of={AssetSelectorStories.Example} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+## From
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/AssetSelector" linkToID="from">
+      <h6 className="h6">From</h6>
+      <Story of={AssetSelectorStories.From} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+## To Empty
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/AssetSelector" linkToID="to-empty">
+      <h6 className="h6">To Empty</h6>
+      <Story of={AssetSelectorStories.ToEmpty} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+## To
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/AssetSelector" linkToID="to">
+      <h6 className="h6">To</h6>
+      <Story of={AssetSelectorStories.To} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+## Send Example
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/AssetSelector" linkToID="send-example">
+      <h6 className="h6">Send Example</h6>
+      <Story of={AssetSelectorStories.SendExample} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+## Skeleton
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Inputs/AssetSelector" linkToID="skeleton">
+      <h6 className="h6">Skeleton</h6>
+      <Story of={AssetSelectorStories.Skeleton} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />

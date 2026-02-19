@@ -1,0 +1,42 @@
+.skeleton {
+  width: 248px;
+  background: var(--token-dark-300);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+
+  .image {
+    height: 248px;
+    width: 100%;
+    background: var(--token-dark-700, #2A2B32);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+
+    .top {
+      height: 16px;
+      width: 100%;
+      border-radius: 8px;
+      background: var(--token-dark-700, #2A2B32);
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+
+      .bottom {
+        height: 14px;
+        width: calc(50% - 20px);
+        border-radius: 8px;
+        background: var(--token-dark-700, #2A2B32);
+      }
+    }
+
+  }
+}

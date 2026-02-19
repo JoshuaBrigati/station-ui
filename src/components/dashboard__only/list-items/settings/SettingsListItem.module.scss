@@ -1,0 +1,98 @@
+@import "scss/font_mixins";
+
+.setting__li__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left__container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .icon {
+      max-width: 32px;
+      max-height: 32px;
+    }
+
+    .title__container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .title {
+        @include Medium;
+        color: var(--token-light-white, #FFFFFF);
+      }
+
+      .subtitle {
+        @include Small;
+        color: var(--token-light-100, #8B8E9C);
+      }
+    }
+  }
+}
+
+.dropdown__override {
+  width: 140px;
+  border: 1px solid var(--token-dark-900) !important;
+  border-radius: 4px;
+
+  button {
+    height: 40px !important;
+    background: transparent;
+    border-radius: 4px;
+    border: none;
+
+    span {
+      font-family: var(--token-font-family-default) !important;
+      font-size: var(--token-font-size-x-sm) !important;
+      line-height: var(--token-line-height-x-sm-default) !important;
+      font-weight: var(--token-font-weight-medium) !important;
+      color: var(--token-light-100) !important;
+    }
+
+    svg {
+      fill: var(--token-light-100) !important;
+    }
+  }
+
+  div {
+    top: 44px !important;
+  }
+
+  .selector {
+    @include X-Small;
+  }
+}
+
+.input__wrapper__override {
+  border-radius: 4px !important;
+  border: 1px solid var(--token-dark-900) !important;
+}
+
+.input__override {
+  height: 40px !important;
+  min-height: 40px !important;
+  width: 52px !important;
+  min-width: 52px !important;
+  border-radius: 4px !important;
+  font-family: var(--token-font-family-default) !important;
+  font-size: var(--token-font-size-x-sm) !important;
+  line-height: var(--token-line-height-x-sm-default) !important;
+  font-weight: var(--token-font-weight-medium) !important;
+  padding: 0px 16px !important;
+  background: transparent !important;
+}
+
+.button__override {
+  height: 40px !important;
+  min-height: 40px !important;
+  width: 80px !important;
+  min-width: 80px !important;
+  border-radius: 4px !important;
+  font-family: var(--token-font-family-default) !important;
+  font-size: var(--token-font-size-x-sm) !important;
+  line-height: var(--token-line-height-x-sm-default) !important;
+  font-weight: var(--token-font-weight-medium) !important;
+}

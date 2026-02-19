@@ -1,0 +1,124 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks";
+import { RequiredText } from "../../../DocsHelpers.tsx";
+import * as SendAmountStories from "./SendAmount.stories.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Inputs/Send Amount" />
+
+# SendAmount
+
+##### This is a component for send input.
+It has a dynamic width input... so it will grow and shrink based on the amount of text in the input.
+It is incredible. It was dificult to make. I am proud of it.
+
+## Props
+- **`setValue`** - <RequiredText /> - `any` - The function from react-hook-form to set the value of the input.
+- **`tokenInputAttr`** - <RequiredText /> - `InputHTMLAttributes<HTMLInputElement>` - Attributes from react-hook-form for the **token** input.
+- **`tokenAmount`** - <RequiredText /> - `number` - The input token amount. **Should be watch("*registered input from react-hook-form*")**
+- **`currencyInputAttrs`** - <RequiredText /> - `InputHTMLAttributes<HTMLInputElement>` - Attributes from react-hook-form for the **currency** input.
+- **`currencyAmount`** - <RequiredText /> - `number` - The input amount for the currency. **Should be watch("*registered input from react-hook-form*")**
+- **`symbol`** - <RequiredText /> - `string` - The symbol of the token.
+- **`tokenIcon`** - <RequiredText /> - `string` - The icon of the token.
+- **`currencySymbol`** - <RequiredText /> - `string` - The symbol for the users currency.
+- **`price`** - <RequiredText /> - `number` - The price of the token.
+- **`formState`** - <RequiredText /> - `any` - The formState from react-hook-form.
+
+## Import
+```jsx
+import { SendAmount } from "station-ui";
+```
+
+## Important Notes
+# tokenInputAttr
+This is the most import part of this component for validation.
+- when calling "register()" here be sure to pass in the following:
+  - `required: true`
+  - `valueAsNumber: true`
+  - `validate: validate.input(
+    toInput(asset?.balance || 0, asset?.decimals || 0),
+    asset?.decimals
+  )`
+  **validate is just an example using function alread built in station**
+
+# currencyInputAttrs
+- when calling "register()" here be sure to pass in the following:
+  - `required: true`
+  - `valueAsNumber: true`
+  - `deps: ["tokenAmount"]` **this is important**
+
+**deps is extemely important. It will not work without this.**
+**It is what causes validation when the currencyInput is being used**
+**It tells react-hook-form to revalidate using "tokenAmount"s passed in checks**
+
+## Stories
+
+## Example
+<div className="story_with_source_below">
+  <Canvas of={SendAmountStories.Example} />
+  <Source code={`
+const [sendToken, ] = useState("LUNA")
+const { handleSubmit, register, watch, setValue, formState } = useForm({
+  mode: "onChange",
+  defaultValues: { tokenAmount: 0, currencyAmount: 0 }
+})
+const onSubmit = handleSubmit(data => console.log(data))
+return (
+  <form onSubmit={onSubmit}>
+    <SendAmount
+      setValue={setValue}
+      tokenInputAttr={
+        {...register("tokenAmount", {
+          required: true,
+          valueAsNumber: true,
+          validate: input(
+            toInput(100000000, 6),
+            8,
+            "Token amount",
+          ),
+        })}
+      }
+      tokenAmount={watch("tokenAmount") || 0}
+      currencyInputAttrs={
+        {...register("currencyAmount", {
+          valueAsNumber: true,
+          required: true,
+          deps: ["tokenAmount"],
+        })}
+      }
+      currencyAmount={watch("currencyAmount") || 0}
+      symbol={sendToken}
+      tokenIcon={tokensBySymbol[sendToken].tokenIcon}
+      currencySymbol={"$"}
+      price={tokenPrices[sendToken]}
+      formState={formState}
+    />
+  </form>
+)
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

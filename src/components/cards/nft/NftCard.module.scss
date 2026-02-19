@@ -1,0 +1,33 @@
+@import "scss/font_mixins";
+
+.nft__container {
+  width: 248px;
+  background: var(--token-dark-300);
+  border-radius: 8px;
+
+  .nft__container__image {
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .nft__container__info {
+    padding: 24px;
+
+    .info__icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  h3 {
+    @include Medium;
+    color: var(--token-dark-900);
+  }
+
+  h5 {
+    @include Small;
+    color: var(--token-light-500);
+  }
+}

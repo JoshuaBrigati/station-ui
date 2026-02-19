@@ -1,0 +1,17 @@
+@import "scss/font_mixins";
+
+.header__list__container {
+  .header__list__info {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 4px;
+  }
+
+  .header__list__values {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    gap: 8px;
+  }
+}

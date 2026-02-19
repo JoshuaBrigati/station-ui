@@ -1,0 +1,17 @@
+.wrapper__card {
+  padding: 24px;
+  background: var(--token-dark-300, #1C1D21);
+  border-radius: 8px;
+
+  &.hidden {
+    overflow: hidden;
+  }
+
+  &.visible {
+    overflow: visible;
+  }
+
+  &.auto {
+    overflow: auto;
+  }
+}

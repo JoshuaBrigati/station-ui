@@ -1,0 +1,79 @@
+@import "scss/font_mixins";
+
+.section__header {
+  width: 100%;
+
+  &.pointer {
+    cursor: pointer;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.indented {
+      padding: 0 8px;
+    }
+
+    &.has__line {
+      justify-content: center;
+    }
+
+    .full__wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      &.has__line {
+        gap: 16px;
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 12px;
+        width: 12px;
+        font-size: 10px;
+      }
+
+      .line {
+        height: 1px;
+        width: 100%;
+        background-color: var(--token-dark-700);
+      }
+
+      .title__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .title {
+          white-space: nowrap;
+          @include Small;
+          color: var(--token-light-100);
+
+          &.indented {
+            @include X-Small;
+          }
+
+          &.xs__text {
+            @include X-Small;
+            color: var(--token-dark-900);
+          }
+        }
+
+        .arrow__icon {
+          transform: rotate(0deg);
+          transition: transform 0.15s ease-in;
+
+          &.arrow__rotated {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}

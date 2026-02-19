@@ -1,0 +1,418 @@
+import {
+  Meta,
+  Story,
+  Source,
+} from "@storybook/blocks";
+import { RightArrow, DocsLink, RequiredText, InLineDocsLink } from "../../DocsHelpers.tsx";
+import * as DelegationStories from "./delegation/Delegation.stories.tsx";
+import * as NftCardStories from "./nft/NftCard.stories.tsx";
+import * as NftHeaderCardStories from "./nft-header/NftHeaderCard.stories.tsx";
+import * as NftSaleCardStories from "./nft-sale/NftSaleCard.stories.tsx";
+import * as ProposalCardStories from "./proposal/ProposalCard.stories.tsx";
+import * as SummaryColumnStories from "./summary/column/SummaryColumn.stories.tsx";
+import * as SummaryTableStories from "./summary/table/SummaryTable.stories.tsx";
+import * as VestingCardStories from "./vesting/VestingCard.stories.tsx";
+import * as WalletSummaryCardStories from "./wallet-summary/WalletSummaryCard.stories.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Cards" />
+
+# Cards
+Cards are used to display information in a structured way. Will likely contain other components.
+
+# DelegationCard [<InLineDocsLink />](/docs/components-cards-delegation--docs)
+
+##### This is used to show a wallets individual delegation information.
+
+## Props
+- **`validator`** - <RequiredText /> - `**object below**` - Data for the validator to display.
+  - `{ name: string; img: string; description: string }`
+- **`onClick`** - <RequiredText /> - `() => void` - OnClick function for the card.
+- **`className`** - `string` - ClassName override for the card.
+- **`children`** - `ReactNode` - Children to display on the card below the validator.
+  - Should be `<TokenSingleChainListItem />` for this component.
+
+## Import
+```jsx
+import { DelegationCard } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Delegation" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={DelegationStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# NftCard [<InLineDocsLink />](/docs/components-cards-nft--docs)
+
+##### This is used to show an nft.
+
+## Props
+- **`chainImg`** - <RequiredText /> - `string` - The chain image url associated with the nft.
+- **`chainName`** - <RequiredText /> - `string` - The chain name associated with the nft.
+- **`currencySymbol`** - `string` - The symbol of the currency ($).
+- **`nftImage`** - <RequiredText /> - `string` - The nft main image url.
+- **`nftImageLabel`** - <RequiredText /> - `string` - The nft main image label.
+- **`nftName`** - <RequiredText /> - `string` - The nft name.
+- **`tokenImg`** - <RequiredText /> - `string` - The image url of the token.
+- **`tokenName`** - <RequiredText /> - `string` - The name the token.
+- **`tokenValue`** - <RequiredText /> - `number` - How many tokens the nft is worth.
+
+## Import
+```jsx
+import { NftCard } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Nft" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={NftCardStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Nft" linkToID="default-with-symbol">
+      <h6 className="h6">Default With Symbol</h6>
+      <Story of={NftCardStories.DefaultWithSymbol} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Nft" linkToID="skeleton">
+      <h6 className="h6">Skeleton</h6>
+      <Story of={NftCardStories.Skeleton} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+# NftHeaderCard [<InLineDocsLink />](/docs/components-cards-nftheadercard--docs)
+
+##### This is used to show some info about the nft.
+
+## Props
+- **`address`** - <RequiredText /> - `string` - The address of the wallet.
+- **`collectionImg`** - <RequiredText /> - `string` - The collection image associated with the nft.
+- **`collectionName`** - <RequiredText /> - `string` - The collection name associated with the nft.
+
+## Import
+```jsx
+import { NftHeaderCard } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/NftHeaderCard" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={NftHeaderCardStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+# NftSaleCard [<InLineDocsLink />](/docs/components-cards-nftsalecard--docs)
+
+##### This is used to show some selling info about the nft.
+
+## Props
+- **`collectionPrice`** - <RequiredText /> - `number` - The collection floor price.
+- **`currentPrice`** - <RequiredText /> - `number` - The nft current price.
+- **`currencySymbol`** - `string` - The symbol of the currency ($).
+- **`saleEndDate`** - <RequiredText /> - `Date` - When the sale ends.
+- **`tokenImg`** - <RequiredText /> - `string` - The image url of the token.
+- **`tokenName`** - <RequiredText /> - `string` - The name the token.
+- **`onBuyNowClick`** - <RequiredText /> - `() => void` - OnClick functionality for the buy now button.
+- **`onMakeOfferClick`** - <RequiredText /> - `() => void` - OnClick functionality for the make offer button.
+- **`onSaleFinished`** - <RequiredText /> - `() => void` - Callback function when the sale ends.
+
+## Import
+```jsx
+import { NftSaleCard } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/NftSaleCard" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={NftSaleCardStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/NftSaleCard" linkToID="default-with-symbol">
+      <h6 className="h6">DefaultWithSymbol</h6>
+      <Story of={NftSaleCardStories.DefaultWithSymbol} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+# ProposalCard [<InLineDocsLink />](/docs/components-cards-proposal--docs)
+
+##### This is used to show a wallets individual delegation information.
+
+## Props
+- **`proposal`** - <RequiredText /> - `**object below**` - Data for the proposal to display.
+  - **`ProposalHeaderProps`** = `{`
+    - **`status`** - <RequiredText /> - `string` - Used to display statup of the proposal.
+      - options: "Voting" | "Deposit" | "Rejected" | "Passed"
+    - **`title`** - <RequiredText /> - `string` - The title of the page (The large text).
+    - **`metaText`** - <RequiredText /> - `string` - The description of the page (The small text on top).
+    - **`metaImage`** - <RequiredText /> - `string` - The image of the page (The small image on top).
+    - **`submittedDate`** - <RequiredText /> - `string` - The date the proposal was submitted.
+    - **`endsDate`** - <RequiredText /> - `string` - The date the proposal ends.
+      - ***If this date hasn't passed, a countdown will be displayed***
+    - **`voteValue`** - `string` - The value of what the USER voted.
+      - option: "Yes" | "No" | "Abstain" | "No (Veto)"
+  - `}`
+- **`progressData`** - <RequiredText /> - `ProgressBarData[]` - Data for the `<ProgressBar />`.
+  - **`ProgressBarData[]`** = `{`
+      type: "yes" | "abstain" | "no" | "noWithVeto" | "deposit"
+      percent: string
+      amount?: string | ReactNode
+  - `}`
+- **`threshold`** - <RequiredText /> - `number` - The threshold for the ProgressBar.
+- **`progressLabelOverride`** - `string` - Override for the progress label.
+- **`className`** - `string` - ClassName override for the card.
+
+## Import
+```jsx
+import { ProposalCard } from "terra-money/station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/Proposal" linkToID="not-voted-on---voting-proposal">
+      <h6 className="h6">Not Voted On - VotingProposal</h6>
+      <Story of={ProposalCardStories.NotVotedOn__VotingProposal} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/Proposal" linkToID="voted-on---voting-proposal">
+      <h6 className="h6">Voted On - VotingProposal</h6>
+      <Story of={ProposalCardStories.VotedOn__VotingProposal} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/Proposal" linkToID="voted-on---passed">
+      <h6 className="h6">Voted On - Passed</h6>
+      <Story of={ProposalCardStories.VotedOn__Passed} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/Proposal" linkToID="not-voted-on---vrejected">
+      <h6 className="h6">Voted On - Rejected</h6>
+      <Story of={ProposalCardStories.VotedOn__Rejected} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/Proposal" linkToID="deposit">
+      <h6 className="h6">Deposit</h6>
+      <Story of={ProposalCardStories.Deposit} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/Proposal" linkToID="deposit-met">
+      <h6 className="h6">Deposit Met</h6>
+      <Story of={ProposalCardStories.DepositMet} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Proposal" linkToID="example">
+      <h6 className="h6">Example (this is not responsive in Storybook)</h6>
+      <Story of={ProposalCardStories.Example} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# SummaryColumn [<InLineDocsLink />](/docs/components-cards-summary--docs)
+
+##### Displays a Title and a Description in a column on a card.
+
+## Props
+- **`title`** - <RequiredText /> - `string` - Medium text title.
+- **`extra`** - `ReactNode` - Add as a ReactNode item to the right of the title.
+- **`description`** - <RequiredText /> - `string` - Description of the card.
+- **`className`** - `string` - ClassName override for the card.
+
+## Import
+```jsx
+import { SummaryColumn } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Summary" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={SummaryColumnStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Summary" linkToID="with-extra">
+      <h6 className="h6">With Extra</h6>
+      <Story of={SummaryColumnStories.WithExtra} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# SummaryTable [<InLineDocsLink />](/docs/components-cards-summary--docs#summarytable)
+
+##### Displays rows spaced apart.
+
+## Props
+- **`rows`** - <RequiredText /> - `**object below**` - The row data of the card.
+  - **`{ label: string; value: string | ReactNode }[]`**
+- **`className`** - `string` - ClassName override for the card.
+
+## Import
+```jsx
+import { SummaryTable } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Summary" linkToID="default-1">
+      <h6 className="h6">Default</h6>
+      <Story of={SummaryTableStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# VestingCard [<InLineDocsLink />](/docs/components-cards-vesting--docs)
+
+##### A Card to display vesting information.
+
+## Props
+- **`vestedAmount`** - <RequiredText /> - `string` - The threshold for the ProgressBar.
+- **`children`** - `ReactNode` - The content to be displayed on this card.
+  - Should be **`<TokenSingleChainListItem />`** for this component.
+- **`className`** - `string` - ClassName override for the card.
+
+## Import
+```jsx
+import { VestingCard } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "100%" }}>
+    <DocsLink linkToRoute="Components/Cards/Vesting" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={VestingCardStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+
+# Wallet Summary Card [<InLineDocsLink />](/docs/components-cards-walletsummary--docs)
+
+##### A Card to display Wallet Summary information.
+
+## Props
+- **`walletType`** - <RequiredText /> - `string` - To display the wallet type.
+- **`walletAddress`** - <RequiredText /> - `string` - The address of the wallet.
+- **`walletBalance`** - <RequiredText /> - `string` - The balance of the wallet.
+- **`prevTransactions`** - <RequiredText /> - `string` - The 'number' of transactions (as a string).
+- **`isActive`** - `boolean` - Set if the card is active.
+- **`className`** - `string` - ClassName override for the card.
+- **`onClick`** - `() => void` - A function of what to do when this card is clicked.
+
+## Import
+```jsx
+import { WalletSummaryCard } from "station-ui";
+```
+
+## Variants
+<div className="sub__items">
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/WalletSummary" linkToID="default">
+      <h6 className="h6">Default</h6>
+      <Story of={WalletSummaryCardStories.Default} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/WalletSummary" linkToID="hasvalues">
+      <h6 className="h6">Has Values</h6>
+      <Story of={WalletSummaryCardStories.HasValues} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+  <div className="story__wrapper" style={{ width: "calc(50% - 4px)" }}>
+    <DocsLink linkToRoute="Components/Cards/WalletSummary" linkToID="isactive">
+      <h6 className="h6">Is Active</h6>
+      <Story of={WalletSummaryCardStories.IsActive} />
+      <p className="p">See More<RightArrow /></p>
+    </DocsLink>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -1,0 +1,141 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks"
+import { RequiredText } from "../../../DocsHelpers.tsx"
+import * as TransactionTrackerStories from "./TransactionTracker.stories.tsx"
+import "scss/storybookoverrides.scss"
+
+<Meta title="Components/Displays/Transaction Tracker" />
+
+# Transaction Tracker
+
+##### This displays the progress of a transactions.
+
+## TransactionTracker Props
+- **`steps`** - <RequiredText /> - `StepStatus[]` - The status of each step.
+  - **`StepStatus`** = `'incomplete' | 'completed' | 'inProgress' | 'failed'`
+- **`stepLabels`** - `string[]` - Adds labels below the steps.
+
+## Import
+```jsx
+import { TransactionTracker } from "station-ui";
+```
+
+## Stories
+
+## With Labels
+Adds labels below the steps.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.WithLabels} />
+  <Source code={`
+    <TransactionTracker
+  steps={['completed', 'completed', 'failed']}
+  stepLabels={['Step 1', 'Asset bridged', 'Step 3']}
+/>
+  `} />
+</div>
+
+## First In Progress
+Only the first step is in progress.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.FirstInProgress} />
+  <Source code={`
+    <TransactionTracker steps={['inProgress', 'incomplete', 'incomplete']} />
+  `} />
+</div>
+
+## First Completed
+Only the first step is completed.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.FirstCompleted} />
+  <Source code={`
+    <TransactionTracker steps={['completed', 'incomplete', 'incomplete']} />
+  `} />
+</div>
+
+## Second In Progress
+Only the second step is in progress.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.SecondInProgress} />
+  <Source code={`
+    <TransactionTracker steps={['completed', 'inProgress', 'incomplete']} />
+  `} />
+</div>
+
+## Second Completed
+Only the second step is completed.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.SecondCompleted} />
+  <Source code={`
+    <TransactionTracker steps={['completed', 'complete', 'incomplete']} />
+  `} />
+</div>
+
+## Third In Progress
+Only the third step is in progress.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.ThirdInProgress} />
+  <Source code={`
+    <TransactionTracker steps={['completed', 'completed', 'inProgress']} />
+  `} />
+</div>
+
+## All Completed
+All steps are completed.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.AllCompleted} />
+  <Source code={`
+    <TransactionTracker steps={['completed', 'complete', 'completed']} />
+  `} />
+</div>
+
+## First Failed
+Only the first failed.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.FirstFailed} />
+  <Source code={`
+    <TransactionTracker steps={['failed', 'incomplete', 'incomplete']} />
+  `} />
+</div>
+
+## Second Failed
+Only the second failed.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.SecondFailed} />
+  <Source code={`
+    <TransactionTracker steps={['completed', 'failed', 'incomplete']} />
+  `} />
+</div>
+
+## Third Failed
+Only the third failed.
+<div className="story_with_source_below">
+  <Canvas of={TransactionTrackerStories.ThirdFailed} />
+  <Source code={`
+    <TransactionTracker steps={['completed', 'completed', 'failed']} />
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

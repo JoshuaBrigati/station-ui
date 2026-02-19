@@ -1,0 +1,76 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks";
+import { RequiredText } from "../../../../DocsHelpers.tsx";
+import * as LinkSocialStories from "./LinkSocial.stories.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/List Items/Link Social" />
+
+# Link Social
+
+##### Displays a single social component to link to the account.
+
+## Props
+- **`icon`** - <RequiredText /> - `ReactNode` - The social icon.
+- **`connected`** - <RequiredText /> - `boolean` - Shows a green checkmark if the social is already linked or not.
+- **`title`** - <RequiredText /> - `string` - Social name.
+- **`username`** - `string` - Shows the user's username.
+
+## Import
+```jsx
+import { LinkSocial } from "station-ui";
+```
+
+## Stories
+
+## Linked Social
+Linked social with a green check icon on the icon.
+<div className="story_with_source_below">
+  <Canvas of={LinkSocialStories.LinkedSocial} />
+  <Source code={`
+<LinkSocial
+  title="GitHub"
+  icon={<GithubIcon width={28} height={28} fill="var(--token-dark-900)" />}
+  username={'@midnyt_simlyn'}
+  connected={true}
+/>
+  `} />
+</div>
+
+## Unlinked Social
+Unlinked social without the checkmark.
+<div className="story_with_source_below">
+  <Canvas of={LinkSocialStories.UnlinkedSocial} />
+  <Source code={`
+<LinkSocial
+  title="Telegram"
+  icon={<TelegramIcon width={28} height={28} fill="var(--token-dark-900)" />}
+  connected={false}
+/>
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

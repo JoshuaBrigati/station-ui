@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &.space__between {
+    justify-content: space-between;
+  }
+
+  &.full__height {
+    height: 100%;
+  }
+}

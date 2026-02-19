@@ -1,0 +1,11 @@
+@import "scss/font_mixins";
+
+.countdown {
+  @include XX-Small;
+  color: var(--token-light-100, #8B8E9C);
+
+  span {
+    @include XX-Small;
+    color: var(--token-light-white, #FFFFFF);
+  }
+}

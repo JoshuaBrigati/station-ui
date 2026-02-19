@@ -1,0 +1,61 @@
+import {
+  Meta,
+  Canvas,
+  Source,
+} from "@storybook/blocks";
+import { RequiredText } from "../../../DocsHelpers.tsx";
+import * as SeedPhraseStories from "./SeedPhrase.stories.tsx";
+import "scss/storybookoverrides.scss";
+
+<Meta title="Components/Displays/Seed Phrase" />
+
+# Seed Phrase
+
+This is used to show the user a seed phrase.
+
+## Import
+```jsx
+import { SeedPhrase } from "station-ui";
+```
+
+## Seed Phrase Props
+
+- **`seedphrase`** - <RequiredText /> - Seedphrase to show.
+
+## Stories
+
+## Seed Phrase
+Showing a seedphrase with 12 words.
+<div className="story_with_source_below">
+  <Canvas of={SeedPhraseStories.DefaultSeedPhrase} />
+  <Source code={`
+    
+    const seedphrase = ['local', 'all', 'weekend', 'swim', 'spy', 'vague', 'cat', 'cage', 'stone', 'leave', 'benefit', 'mask'];
+
+    return (
+      <SeedPhrase seedphrase={seedphrase} />
+    )
+  `} />
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
